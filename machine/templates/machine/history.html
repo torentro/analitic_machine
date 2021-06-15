@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  История
+{% endblock %}
+
+{% block content %}
+<div class='row'>
+      <h1 class="mx-auto my-3"> Личный кабинет </h1>
+    </div>
+    <div class="container">
+      <div class="jumbotron jumbotron-fluid" style="background-color:#1F1E1E;">
+        <div class="row">
+          <p class="lead mx-auto my-3" style="color:#FFFFFF">Приветствуем, {{n}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <h1 class="mx-auto my-3"> История запросов </h1>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Метод</th>
+              <th scope="col">Аргумент</th>
+              <th scope="col">Значение</th>
+            </tr>
+          </thead>
+          <tbody>
+              {% for diff in diffs %}
+                <tr>
+                  <td>{{ diff.user }}</td>
+                  <td>{{ diff.function }}</td>
+                  <td>{{ diff.differentiation }}</td>
+                </tr>
+              {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+{% endblock %}

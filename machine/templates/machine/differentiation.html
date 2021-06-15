@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Производная
+{% endblock %}
+
+{% block graph %}
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable(
+        {{ dots|safe }}
+        );
+
+        var options = {
+          title: 'Differentiation',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+{% endblock %}
+
+{% block content %}
+
+<div class='row'>
+    <h1 class="mx-auto my-3"> Производная </h1>
+  </div>
+  <div class="container">
+    <div class='row'>
+
+      <div class="input-group mb-3">
+        <form action="{% url 'differentiation_url' %}" method='post'>
+            {% csrf_token %}
+
+            {% for field in form %}
+             <div class="form-group">
+               {% if field.errors %}
+                  <div class="alert alert-danger">
+                    {{field.errors}}
+                  </div>
+                {% endif %}
+
+               {{field.label}}
+               {{field}}
+             </div>
+             {% endfor %}
+          <button class="btn btn-outline-secondary" type="submit" id="button-addon">Подтвердить</button>
+
+        </form>
+      </div>
+  <div class="container">
+    <div class="jumbotron jumbotron-fluid" style="background-color:#1F1E1E;">
+      <div class="container">
+        <h1 class="display-4" style="color:#FFFFFF">Мы нашли производную:</h1>
+        <p class="lead" style="color:#FFFFFF">{{ resault }}</p>
+        <div id="curve_chart" ></div>
+      </div>
+    </div>
+  </div>
+
+
+{% endblock %}

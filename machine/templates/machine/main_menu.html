@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Аналитическая машина ЮФУ
+{% endblock %}
+
+{% block content %}
+<div class='row'>
+    <h1 class="mx-auto my-3"> Математические методы </h1>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="card mx-auto text-white text-left" style="width: 24rem; height: 24rem; background-color: #1F1E1E;">
+        <img src="http://www.mathematics-repetition.com/wp-content/uploads/2013/02/10-3-0.jpg" class="card-img-top" alt="..." style="height: 11rem;">
+        <div class="card-body">
+          <h5 class="card-title"><a href="http://127.0.0.1:5000/machine/differentiation" style="color:#FF3A32">Производная</a></h5>
+          <p class="card-text">Здесь вы можете получить производную любого порядка от любой функции</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="card mx-auto text-white text-left" style="width: 24rem; height: 24rem; background-color: #1F1E1E;">
+        <img src="data:image/png;base64,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" class="card-img-top" alt="..." style="height: 11rem;">
+        <div class="card-body">
+          <h5 class="card-title"><a href="http://127.0.0.1:5000/machine/exstrapolation" style="color:#FF3A32">Интерполяция</a></h5>
+          <p class="card-text">Метод говорит сам за себя, интерполяция функции</p>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="card mx-auto text-white text-left" style="width: 24rem; height: 24rem; background-color: #1F1E1E;">
+        <img src="https://biznes-prost.ru/wp-content/uploads/2016/05/%D0%9C%D0%B5%D1%82%D0%BE%D0%B4-%D1%8D%D0%BA%D1%81%D1%82%D1%80%D0%B0%D0%BF%D0%BE%D0%BB%D1%8F%D1%86%D0%B8%D0%B8-6-350x186.png" class="card-img-top" alt="..." style="height: 11rem;">
+        <div class="card-body">
+          <h5 class="card-title" href="#" style="color:#FF3A32"><a href="http://127.0.0.1:5000/machine/exstrapolation" style="color:#FF3A32">Экстраполяция</a></h5>
+          <p class="card-text">Метод осуществляет экстраполяцию функции</p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
